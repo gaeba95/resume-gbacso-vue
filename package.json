@@ -1,0 +1,24 @@
+{
+  "name": "resume-gbacso-vue",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@tailwindcss/vite": "^4.1.5",
+    "flowbite": "^3.1.2",
+    "tailwindcss": "^4.1.5",
+    "unplugin-vue-i18n": "^1.0.11",
+    "vue": "^3.5.13",
+    "vue-i18n": "^9.14.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.3",
+    "vite": "^6.3.5"
+  }
+}

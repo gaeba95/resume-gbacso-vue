@@ -1,0 +1,399 @@
+@import "tailwindcss";
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../node_modules/flowbite";
+
+:root {
+  --main-blue: #69A5FF;
+  --sidebar-gray: #f1f2f8;
+  --icon-gray: #888;
+  --main-gray: #5d636e;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f7f7fa;
+  color: var(--main-gray);
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--main-blue);
+  color: #fff;
+  box-shadow: 0 2px 12px #6fa0c320;
+}
+
+.header-bar {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 19px 28px 13px 35px;
+  flex-wrap: wrap;
+}
+
+.header-bar .name-role {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+}
+
+.header-bar h1 {
+  font-size: 1.75rem;
+  margin: 0;
+  letter-spacing: 1.3px;
+}
+
+.header-bar .role {
+  font-size: 1.03rem;
+  font-weight: 400;
+  color: #e8f1fa;
+  letter-spacing: 1px;
+  margin-left: 7px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.download-btn {
+  background: #e3f0fc;
+  color: var(--main-blue);
+  border: none;
+  border-radius: 14px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 2px 8px #4686c730;
+  transition: background 0.14s;
+}
+
+.download-btn i {
+  margin-right: 7px;
+}
+
+.download-btn:hover {
+  background: #d3e5f7;
+}
+
+/* Dropdown Language Switch */
+.lang-dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: inherit;
+}
+
+.lang-dropbtn {
+  background: #e3f0fc;
+  color: var(--main-blue);
+  padding: 6px 23px 6px 13px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  position: relative;
+  min-width: 58px;
+  transition: background 0.15s;
+}
+
+.lang-dropbtn:after {
+  content: "▼";
+  color: var(--main-blue);
+  font-size: 0.82em;
+  position: absolute;
+  right: 10px;
+}
+
+.lang-dropdown-content {
+  display: none;
+  position: absolute;
+  background: var(--sidebar-gray);
+  min-width: 85px;
+  box-shadow: 0 4px 12px var(--main-blue)33;
+  z-index: 100;
+  border-radius: 8px;
+  margin-top: 4px;
+  right: 0;
+  font-size: 1rem;
+  overflow: hidden;
+}
+
+.lang-dropdown-content a {
+  color: var(--main-blue);
+  padding: 9px 16px 9px 18px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.13s;
+}
+
+.lang-dropdown-content a.active,
+.lang-dropdown-content a:hover {
+  background: #e3f0fc;
+}
+
+.lang-dropdown.show .lang-dropdown-content {
+  display: block;
+}
+
+.cv-container {
+  max-width: 980px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.09);
+  display: flex;
+  position: relative;
+  color: var(--main-gray);
+}
+
+/* -------- LEFT SIDEBAR ---------- */
+.cv-left {
+  background: var(--sidebar-gray);
+  color: var(--main-gray);
+  border-radius: 12px 0 0 12px;
+  padding: 30px 26px 40px 26px;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  box-sizing: border-box;
+  min-width: 230px;
+  max-width: 270px;
+  flex: none;
+}
+
+.cv-triangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 140px solid var(--main-blue);
+  /* height of the triangle */
+  border-right: 140px solid transparent;
+  /* width from the left */
+  z-index: 1;
+}
+
+.profile-pic-container {
+  margin-top: 15%;
+  margin-left: 25%;
+  margin-bottom: 18px;
+  width: 120px;
+  height: 120px;
+  box-shadow: 0 8px 26px #1e233337;
+  border-radius: 50%;
+  background: var(--main-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-pic-container img {
+  width: 108px;
+  height: 108px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 3px 15px #1e233322;
+}
+
+/* Sidebar Section Titles, icons now in gray */
+.sidebar-section-title {
+  text-transform: uppercase;
+  font-size: 1.02rem;
+  margin: 28px 0 6px 3px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  color: var(--main-blue);
+  z-index: 2;
+  align-self: flex-start;
+  width: 94%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1.5px solid var(--main-blue);
+  padding-bottom: 5px;
+}
+
+.sidebar-section-title i {
+  color: var(--icon-gray) !important;
+  /* icon on left titles in gray */
+  font-size: 1.13em;
+  min-width: 22px;
+  text-align: center;
+}
+
+.cv-contact,
+.cv-links,
+.cv-interests {
+  z-index: 2;
+  width: 92%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  font-size: 0.99rem;
+  color: var(--main-gray);
+}
+
+.cv-address-container,
+.cv-phone-container,
+.cv-email-container {
+  display: flex;
+}
+
+.cv-address,
+.cv-phone,
+.cv-email {
+  margin-left: 7px;
+}
+
+.cv-contact .fa-solid,
+.cv-links .fa-solid {
+  color: var(--main-blue) !important;
+  width: 24px;
+}
+
+.cv-links .fa-linkedin {
+  color: var(--main-blue) !important;
+  width: 24px;
+}
+
+.cv-links div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.cv-contact a,
+.cv-links a {
+  color: var(--main-gray);
+  text-decoration: none;
+  transition: color 0.12s;
+}
+
+.cv-contact a:hover,
+.cv-links a:hover {
+  color: var(--main-blue);
+}
+
+/* Specific fix: space after LinkedIn icon and globe icon */
+.cv-links .fa-linkedin+a,
+.cv-links .fa-globe+a {
+  margin-left: 7px;
+}
+
+.cv-interests ul {
+  padding-left: 20px;
+  margin: 7px 0 10px 0;
+}
+
+.cv-interests li {
+  margin-bottom: 3px;
+}
+
+/* ------ MAIN CONTENT ------ */
+.cv-right {
+  flex: 1;
+  padding: 47px 40px 42px 32px;
+  color: var(--main-gray);
+}
+
+.cv-section {
+  margin-bottom: 34px;
+}
+
+.cv-right h2 {
+  color: var(--main-blue);
+  font-size: 1.18rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 17px;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  border-bottom: 1.5px solid var(--main-blue);
+  position: relative;
+  padding-bottom: 6px;
+  width: 100%;
+}
+
+.cv-right h2 i {
+  color: var(--icon-gray);
+  font-size: 1.25em;
+  margin-right: 5px;
+  opacity: 0.93;
+  min-width: 25px;
+  text-align: center;
+}
+
+.cv-right h2::after {
+  display: none;
+}
+
+.skills {
+  margin-bottom: 12px;
+}
+
+.skill-badge {
+  background: #e3f0fc;
+  color: #2b4256;
+  border-radius: 13px;
+  padding: 4px 11px;
+  margin: 4px 8px 4px 0;
+  font-size: 0.99rem;
+  display: inline-block;
+}
+
+.skill-badge i {
+  margin-right: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .cv-container {
+    flex-direction: column;
+    padding: 0.5rem;
+    gap: 1rem;
+  }
+
+  .cv-left {
+    max-width: none;
+    min-width: 0;
+  }
+
+  .profile-pic-container {
+    margin-top: 5%;
+    margin-left: 40%;
+    margin-bottom: 18px;
+    width: 120px;
+    height: 120px;
+    box-shadow: 0 8px 26px #1e233337;
+    border-radius: 50%;
+    background: var(--main-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .cv-container {
+    padding: 0.2rem;
+  }
+}

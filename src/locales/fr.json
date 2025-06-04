@@ -1,0 +1,88 @@
+{
+    "common": {
+        "name": "Gaëtan Bacso",
+        "download": "PDF",
+        "contact": "Contact",
+        "address": "Rue de Gasparin 21, 1400 Yverdon-les-Bains, Suisse",
+        "links": "Liens",
+        "linkedin": "LinkedIn",
+        "linkedin_url": "https://www.linkedin.com/in/gaetan-bacso/",
+        "portfolio_url": "https://www.bacso.ch/",
+        "portfolio": "Portfolio",
+        "interests": "Centres d'intérêt",
+        "phone": "+41 76 615 01 54"
+    },
+    "role": "Ingénieur logiciel",
+    "about_title": "À propos de moi",
+    "about_text": "Consultant/Développeur Java/Web avec 4 ans d’expérience dans la conception et la maintenance d’applications ERP. Je suis compétent en Java, Javascript, SQL, administration de serveurs, gestion de projet SCRUM et suis reconnu pour mes compétences analytiques, mon professionnalisme et ma capacité d’adaptation dans des environnements dynamiques.",
+    "education_title": "Formation",
+    "educations": [
+        {
+            "title": "Bachelor en ingénierie embarquée",
+            "location": "HEIG-VD, Yverdon-les-Bains",
+            "date": "2016–2020",
+            "desc": "Formation d’ingénieur axée sur les systèmes informatiques embarqués, le développement logiciel (C, programmation orientée objet), l’administration des réseaux et l’accélération matérielle (ARM, FPGA). Programme couvrant également la science des données, les systèmes logiques, l’infrastructure réseau, la vérification des systèmes et la gestion de projet."
+        },
+        {
+            "title": "CFC d'informaticien",
+            "location": "CPNV, Ste-Croix",
+            "date": "2010–2015",
+            "desc": "Formation professionnelle de 4 ans pour obtenir les compétences et connaissances nécessaires afin de travailler en tant qu'informaticien dans divers domaines, notamment la gestion de projets informatiques, l’administration de réseaux et le développement d’applications."
+        },
+        {
+            "title": "Maturité professionnelle",
+            "location": "CPNV, Ste-Croix",
+            "date": "2010–2015"
+        }
+    ],
+    "experience_title": "Expérience",
+    "experiences": [
+        {
+            "title": "Développeur logiciel",
+            "location": "AUBEP SA, Yverdon-les-Bains",
+            "date": "12.2020–11.2024",
+            "desc": "Je m'occupais du développement et de la maintenance d’applications d’entreprise (AUBEP XRP/ERP) dédiées à la gestion de production, commerciale et des soins à domicile. Au cours de ces projets, j'ai participé à l'analyse des besoins clients, à la rédaction de use cases et j'ai perfectionné mes compétences en Java, JavaScript, HTML, CSS, frameworks web, gestion de bases de données SQL et API REST. J'étais également responsable de la maintenance de serveurs (Linux/Windows), du support technique (niveaux 1 à 3) et de la gestion de l’infrastructure informatique interne. Reconnu pour mon professionnalisme, mon sens de l’analyse et ma capacité à trouver des solutions techniques performantes en équipe, j'ai su faire preuve d'autonomie dans l'exercice de mes fonctions."
+        },
+        {
+            "title": "Vendeur (station-service)",
+            "location": "TopShop, Bevaix",
+            "date": "08.2018–12.2020",
+            "desc": "En tant que vendeur, j'étais responsable de l'accueil et du service à la clientèle de la station-service. Mes tâches principales consistaient à vendre du carburant et des biens de consommation, ainsi qu'à entretenir les locaux et le matériel. J’ai su démontrer mon efficacité, mon autonomie et ma capacité à gérer le stress en période de forte affluence. J'ai également été apprécié pour ma serviabilité, mon sens du service et ma facilité à établir des relations de confiance avec la clientèle."
+        },
+        {
+            "title": "Développement Base de données Access",
+            "location": "Bobst Ibérica, Barcelone",
+            "date": "08.2015–09.2015",
+            "desc": "Développement d'une base de données Access pour la gestion, la visualisation et les statistiques des diverses réservations d'hôtel de la compagnie, afin de pouvoir planifier et réserver au mieux les hôtels où logeront les divers techniciens devant intervenir chez les clients en Espagne."
+        },
+        {
+            "title": "Stage logiciel & réseau",
+            "location": "Wifx, Yverdon-les-Bains",
+            "date": "09.2014–01.2015",
+            "desc": "Au cours de ce stage, j'ai participé à la mise en place, à la configuration et au diagnostique d'infrastructures réseaux Wi-Fi. J'ai installé du matériel réseau chez divers clients (particuliers et entreprises) et développé une page de connexion pour un accès Wi-Fi publique."
+        },
+        {
+            "title": "Stage helpdesk",
+            "location": "École Hôtelière de Lausanne, Lausanne",
+            "date": "02.2014–08.2014",
+            "desc": "Durant ce stage, j'ai effectué diverses tâches telles que le diagnostic et la résolution de problèmes informatiques, l'installation et la réparation de logiciels, la configuration d'ordinateurs PC et MAC, la formation à l'utilisation du matériel de l'école, la préparation de nouveaux postes de travail et l'impression et la reliure de documents divers."
+        }
+    ],
+    "skills_title": "Compétences",
+    "skill_backend": "Développement Backend & Frontend",
+    "skill_java": "Java, JEE, Javascript",
+    "skill_html": "HTML, CSS",
+    "skill_sql": "SQL, Reporting",
+    "skill_agile": "Méthodologie Agile (SCRUM)",
+    "skill_gitlab": "JIRA, GitLab, Eclipse",
+    "skill_server": "Linux/Windows",
+    "skill_analysis": "Analyse métier & documentation",
+    "interests": [
+        "Sport",
+        "Musique",
+        "Voyages",
+        "Passionné d’IA",
+        "Photographie",
+        "Nouvelles technologies"
+    ]
+}

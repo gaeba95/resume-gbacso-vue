@@ -1,0 +1,88 @@
+{
+    "common": {
+        "name": "Gaëtan Bacso",
+        "download": "PDF",
+        "contact": "Contact",
+        "address": "Rue de Gasparin 21, 1400 Yverdon-les-Bains, Switzerland",
+        "links": "Links",
+        "linkedin": "LinkedIn",
+        "linkedin_url": "https://www.linkedin.com/in/gaetan-bacso/",
+        "portfolio_url": "https://www.bacso.ch/",
+        "portfolio": "Portfolio",
+        "interests": "Interests",
+        "phone": "+41 76 615 01 54"
+    },
+    "role": "Software Engineer",
+    "about_title": "About Me",
+    "about_text": "Java/Web Consultant-Developer with 4 years of experience in building and maintaining ERP business applications. Skilled in Java, Javascript, SQL, server administration and SCRUM project management with strong analytical skills, professionalism and adaptability in dynamic environments.",
+    "education_title": "Education",
+    "educations": [
+        {
+            "title": "Bachelor in Embedded Engineering",
+            "location": "HEIG-VD, Yverdon-les-Bains",
+            "date": "2016–2020",
+            "desc": "Engineering training focused on embedded computer systems, software development (C, object-oriented programming), network administration, and hardware acceleration (ARM, FPGA). The program also covers data science, logical systems, network infrastructure, system verification, and project management."
+        },
+        {
+            "title": "CFC in Information Technology",
+            "location": "CPNV, Ste-Croix",
+            "date": "2010–2015",
+            "desc": "A 4-year vocational training program to acquire the necessary skills and knowledge to work as an IT specialist in various fields, including IT project management, network administration, and application development."
+        },
+        {
+            "title": "Professional Maturity",
+            "location": "CPNV, Ste-Croix",
+            "date": "2010–2015"
+        }
+    ],
+    "experience_title": "Experience",
+    "experiences": [
+        {
+            "title": "Software Developer",
+            "location": "AUBEP SA, Yverdon-les-Bains",
+            "desc": "I was in charge of the development and maintenance of enterprise applications (AUBEP XRP/ERP) dedicated to production, sales and homecare management. During these projects, I was involved in analyzing customer requirements, writing use cases and honing my skills in Java, JavaScript, HTML, CSS, web frameworks, SQL database management and REST APIs. I was also responsible for server maintenance (Linux/Windows), technical support (levels 1 to 3) and management of the internal IT infrastructure. Recognized for my professionalism, analytical skills and ability to find effective technical solutions as part of a team, I was also able to work autonomously in the performance of my duties.",
+            "date": "12.2020–11.2024"
+        },
+        {
+            "title": "Salesman (Gas Station)",
+            "location": "TopShop, Bevaix",
+            "date": "08.2018–12.2020",
+            "desc": "As a sales assistant, I was responsible for welcoming and serving customers at the service station. My main tasks involved selling fuel and consumer goods, as well as maintaining the premises and equipment. I was able to demonstrate my efficiency, autonomy and ability to manage stress during busy periods. I was also appreciated for my helpfulness, sense of service and ability to build trusting relationships with customers."
+        },
+        {
+            "title": "Access Database Development",
+            "location": "Bobst Ibérica, Barcelona",
+            "date": "08.2015–09.2015",
+            "desc": "Development of an Access database for the management, visualization and statistics of the company's various hotel reservations, in order to be able to plan and book the hotels where the various technicians will be staying on customer sites in Spain."
+        },
+        {
+            "title": "Software & Network Internship",
+            "location": "Wifx, Yverdon-les-Bains",
+            "date": "09.2014–01.2015",
+            "desc": "During this internship, I was involved in setting up, configuring and diagnosing Wi-Fi network infrastructures. I installed network equipment at various customer sites (individuals and companies) and developed a connection page for public Wi-Fi access."
+        },
+        {
+            "title": "Helpdesk Internship",
+            "location": "Ecole Hôtelière de Lausanne, Lausanne",
+            "date": "02.2014–08.2014",
+            "desc": "During this internship, I carried out various tasks such as diagnosing and solving computer problems, installing and repairing software, configuring PC and MAC computers, training in the use of the school's equipment, preparing new workstations and printing and binding various documents."
+        }
+    ],
+    "skills_title": "Skills",
+    "skill_backend": "Backend & Frontend Dev",
+    "skill_java": "Java, JEE, Javascript",
+    "skill_html": "HTML, CSS",
+    "skill_sql": "SQL, Reporting",
+    "skill_agile": "Agile Methodology (SCRUM)",
+    "skill_gitlab": "JIRA, GitLab, Eclipse",
+    "skill_server": "Linux/Windows",
+    "skill_analysis": "Business Analysis & Documentation",
+    "interests": [
+        "Sports",
+        "Music",
+        "Travel",
+        "AI enthusiast",
+        "Photography",
+        "New Technologies"
+    ]
+}
