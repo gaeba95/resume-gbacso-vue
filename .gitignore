@@ -1,4 +1,3 @@
-/.DS_Store
 /node_modules
 /dist
 /.env
@@ -9,8 +8,26 @@
 /yarn-error.log*
 /pnpm-debug.log*
 /coverage
-/.vscode
 .idea
 *.local
 *.log
+# macOS system files
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+.DS_Store
+.fseventsd
+.apdisk
 *.DS_Store
+/.DS_Store
+# Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+# Linux system files
+*~
+# VS Code settings
+.vscode/
