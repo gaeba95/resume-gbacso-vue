@@ -13,3 +13,4 @@
 .idea
 *.local
 *.log
+*.DS_Store
