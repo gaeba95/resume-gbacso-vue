@@ -13,4 +13,8 @@ export default defineConfig({
       include: './src/locales/**',
     })
   ],
+  test: {
+    environment: 'jsdom',
+    globals: true,
+  },
 })
