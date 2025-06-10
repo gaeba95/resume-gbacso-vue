@@ -1,56 +1,91 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-# GitHub recommends pinning actions to a commit SHA.
-# To get a newer version, you will need to update the SHA.
-# You can also reference a tag or branch, but the action may change without warning.
-
-name: Publish Docker image
+name: CI/CD - Resume Application with Docker
 
 on:
-  release:
-    types: [published]
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
 
 jobs:
-  push_to_registry:
-    name: Push Docker image to Docker Hub
+  build-test-push:
+    name: Build, Test and Push Docker Image
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
-      attestations: write
-      id-token: write
+
     steps:
-      - name: Check out the repo
+      # 1. Checkout source code
+      - name: Checkout source code
         uses: actions/checkout@v4
-
-      - name: Log in to Docker Hub
-        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          fetch-depth: 0 # Fetches full history for better caching/context
 
-      - name: Extract metadata (tags, labels) for Docker
+      # 2. Set up Docker Buildx
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # 3. Cache Docker layers
+      - name: Cache Docker layers
+        uses: actions/cache@v4
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: ${{ runner.os }}-buildx-
+
+      # 4. Cache npm dependencies
+      - name: Cache npm dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-npm-
+
+      # 5. Extract metadata
+      - name: Extract metadata
         id: meta
-        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
-        with:
-          images: gaeba95/resume-gbacso
+        run: |
+          echo "REPO_NAME=${GITHUB_REPOSITORY##*/}" >> "$GITHUB_OUTPUT"
+          echo "SHORT_SHA=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
 
-      - name: Build and push Docker image
-        id: push
-        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+      # 6. Build dev Docker image
+      - name: Build Docker image for tests
+        uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          file: Dockerfile.dev
+          tags: ${{ steps.meta.outputs.REPO_NAME }}-dev:latest
+          load: true # Load to local Docker daemon for testing
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache,mode=max
 
-      - name: Generate artifact attestation
-        uses: actions/attest-build-provenance@v2
+      # 7. Run Vitest tests
+      - name: Run Vitest tests and generate report
+        run: |
+          docker run --rm \
+            --workdir /app \
+            --entrypoint "" \
+            ${{ steps.meta.outputs.REPO_NAME }}-dev:latest \
+            sh -c "npm ci && npx vitest run --reporter=verbose"
+        env:
+          CI: true
+          NODE_ENV: test
+        timeout-minutes: 10
+
+      # 8. Login to Docker Hub
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
         with:
-          subject-name: index.docker.io/gaeba95/resume-gbacso
-          subject-digest: ${{ steps.push.outputs.digest }}
-          push-to-registry: true
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      # 9. Build and push prod image
+      - name: Build and push production image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          platforms: linux/amd64,linux/arm64
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:latest
+            ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:${{ steps.meta.outputs.SHORT_SHA }}
+          cache-from: type=local,src=/tmp/.buildx-cache
