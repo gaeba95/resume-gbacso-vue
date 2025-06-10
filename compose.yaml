@@ -1,0 +1,25 @@
+services:
+  resume-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: resume-gbacso
+    ports:
+      - "80:80"
+
+  resume-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "5173:5173"
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app
+  resume-test:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    command: ["npm", "run", "test"]

@@ -5,6 +5,7 @@ import VueI18nPlugin from 'unplugin-vue-i18n/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/",
   plugins: [
     vue(),
     tailwindcss(),
@@ -13,6 +14,11 @@ export default defineConfig({
       include: './src/locales/**',
     })
   ],
+  server: {
+    host: true,
+    port: 5173,
+    strictPort: true,
+  },
   test: {
     environment: 'jsdom',
     globals: true,

@@ -1,19 +1,45 @@
-# Use official Node.js image as the build environment
-FROM node:24-alpine AS build
+# =========================================
+# Stage 1: Build the Vue + Vite Application
+# =========================================
+ARG NODE_VERSION=24-alpine
+ARG NGINX_VERSION=alpine
 
+# Use a lightweight Node.js image for building
+FROM node:${NODE_VERSION} AS builder
+
+# Set the working directory inside the container
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install
+# Copy package-related files first to leverage Docker's caching mechanism
+COPY package.json package-lock.json ./
 
+# Install project dependencies using npm ci (ensures a clean, reproducible install)
+RUN --mount=type=cache,target=/root/.npm npm ci
+
+# Copy the rest of the application source code into the container
 COPY . .
+
+# Build the React.js application (outputs to /app/dist)
 RUN npm run build
 
-# Use Nginx to serve the built app
-FROM nginx:alpine AS production
+# =========================================
+# Stage 2: Prepare Nginx to Serve Static Files
+# =========================================
 
-COPY --from=build /app/dist /usr/share/nginx/html
+FROM nginxinc/nginx-unprivileged:${NGINX_VERSION} AS runner
 
+# Use a built-in non-root user for security best practices
+USER nginx
+
+# Copy custom Nginx config
+COPY nginx.conf /etc/nginx/nginx.conf
+
+# Copy the static build output from the build stage to Nginx's default HTML serving directory
+COPY --chown=nginx:nginx  --from=builder /app/dist /usr/share/nginx/html
+
+# Expose port 80 to allow HTTP traffic
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+# Start Nginx directly with custom config
+ENTRYPOINT ["nginx", "-c", "/etc/nginx/nginx.conf"]
+CMD ["-g", "daemon off;"]
